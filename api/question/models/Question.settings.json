@@ -1,0 +1,48 @@
+{
+  "connection": "default",
+  "collectionName": "questions",
+  "info": {
+    "name": "question",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "Question": {
+      "type": "text"
+    },
+    "Level": {
+      "required": true,
+      "enum": [
+        "Hard",
+        "Medium",
+        "Easy"
+      ],
+      "enumDefault": "Easy",
+      "type": "enumeration"
+    },
+    "exam": {
+      "model": "exam",
+      "via": "questions"
+    },
+    "CorrectAnswer": {
+      "required": true,
+      "type": "text"
+    },
+    "WrongAnswer1": {
+      "type": "text"
+    },
+    "WrongAnswer2": {
+      "type": "text"
+    },
+    "WrongAnswer3": {
+      "type": "text"
+    }
+  }
+}

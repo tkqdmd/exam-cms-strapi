@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "exams",
+  "info": {
+    "name": "exam",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": [
+      "created_at",
+      "updated_at"
+    ],
+    "comment": ""
+  },
+  "attributes": {
+    "name": {
+      "required": true,
+      "type": "string",
+      "maxLength": 50,
+      "minLength": 10
+    },
+    "description": {
+      "minLength": 10,
+      "default": "This is an examination",
+      "type": "text"
+    },
+    "author": {
+      "model": "user",
+      "via": "exams",
+      "plugin": "users-permissions"
+    },
+    "questions": {
+      "collection": "question",
+      "via": "exam"
+    }
+  }
+}
